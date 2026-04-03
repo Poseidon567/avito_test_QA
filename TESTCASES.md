@@ -1,4 +1,3 @@
-
 Общая информация
 
 Base URL: https://qa-internship.avito.com
@@ -6,8 +5,11 @@ Base URL: https://qa-internship.avito.com
 Сервис поддерживает операции:
 
 Создание объявления (POST /api/1/item)
+
 Получение объявления по id (GET /api/1/item/{id})
+
 Получение объявлений по sellerId (GET /api/1/{sellerId}/item)
+
 Получение статистики (GET /api/1/statistic/{id})
 
 
@@ -345,4 +347,3 @@ TC-STAT-004: Получение статистики по несуществующему id
 Код 404
 
 ---
-

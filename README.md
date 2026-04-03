@@ -8,8 +8,13 @@
 6. Запустить автоматизированные тесты командой pytest (может запуститься не сразу)
 
 Команды для запуска:
+
 pytest - запуск всех тестов
+
 pytest tests\test_statistics.py - запуск тестов получения статистики
+
 pytest tests\test_get_item.py - запуск тестов получения объявления по id айтема
+
 pytest tests\test_seller_items.py - запуск тестов получения объявлений по id продавца
+
 pytest tests\test_create_item.py - запуск тестов создания объявления
