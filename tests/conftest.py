@@ -7,6 +7,7 @@ BASE_URL = "https://qa-internship.avito.com"
 @pytest.fixture(scope="function")
 def create_item():
     created_items = []
+
     def _create_item(
         seller_id=523647,
         name="test item",
@@ -31,8 +32,6 @@ def create_item():
         if response.status_code == 200:
             created_items.append(response.json()["status"])
         return response, payload
-
-        
 
     yield _create_item
 
