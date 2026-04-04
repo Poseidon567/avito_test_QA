@@ -1,3 +1,4 @@
+import allure
 import pytest
 import requests
 
@@ -27,14 +28,26 @@ def create_item():
                 "contacts": contacts,
             },
         }
-
-        response = requests.post(f"{BASE_URL}/api/1/item", json=payload)
+        with allure.step("Отправка POST запроса на создание объявления"):
+            response = requests.post(f"{BASE_URL}/api/1/item", json=payload)
         if response.status_code == 200:
             created_items.append(response.json()["status"])
+
+        # вложение
+        allure.attach(
+            str(payload),
+            name="Request payload",
+            attachment_type=allure.attachment_type.JSON,
+        )
+        allure.attach(
+            response.text, name="Response", attachment_type=allure.attachment_type.JSON
+        )
+
         return response, payload
 
     yield _create_item
 
     for item in created_items:
         id = item.split(" - ")[1]
-        requests.delete(f"{BASE_URL}/api/2/item/{id}")
+        with allure.step(f"Удаление объявления {id}"):
+            requests.delete(f"{BASE_URL}/api/2/item/{id}")

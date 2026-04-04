@@ -49,3 +49,9 @@ isort --check-only .
 ruff check . --fix   
 isort .  
 black .  
+
+Скриншоты Allure-отчета находятся в файле Allure.docx
+
+Команды для генерации allure-отчета (для этого необходим allure):
+pytest --alluredir=allure-results
+allure serve allure-results
